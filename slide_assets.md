@@ -14,12 +14,13 @@ Unlike linear regression, logistic regression predicts probabilities constrained
 The logistic (sigmoid) function converts any real value into a probability:
 
 sigma(z) = e^z/(1+e^z)
+OR
+σ(z) = e^z/(1+e^z)
 
-where \( z = \mathbf{w}^\top \mathbf{x} + b \)
-
+where z=w⊤x+b
 **Interpretation:**  
-- As \( z \to +\infty \), \( \sigma(z) \to 1 \)  
-- As \( z \to -\infty \), \( \sigma(z) \to 0 \)
+As z→+∞ , σ(z)→1
+As z→−∞ , σ(z)→0
 
 **Slide image:**  
 📊 *Sigmoid Function — `assets/sigmoid.png`*
@@ -42,11 +43,10 @@ A linear model separates the input space using a decision boundary where \( P(y=
 
 To train the model, we minimize **log-loss**:
 
-\[
-\ell(\mathbf{w}) = - \frac{1}{N}\sum_{i=1}^N 
-\big[y_i \log(\hat{y_i}) + (1 - y_i)\log(1 - \hat{y_i})\big]
-\]
-where \( \hat{y_i} = \sigma(\mathbf{w}^\top \mathbf{x_i}) \)
+ℓ(w)=−N1​i=1∑N​[yi​log(y^​i​)+(1−yi​)log(1−y^​i​)]
+
+where 
+y^​i​=σ(w⊤xi​)=1+e−(w⊤xi​)1​
 
 - Penalizes confident wrong predictions heavily  
 - Encourages probabilities to match true labels
@@ -60,29 +60,22 @@ where \( \hat{y_i} = \sigma(\mathbf{w}^\top \mathbf{x_i}) \)
 
 We update model weights by moving opposite to the gradient:
 
-\[
-\mathbf{w} \leftarrow \mathbf{w} - \eta \, \nabla_{\mathbf w} L
-\]
-where \( \eta \) is the learning rate.
+w←w−η∇wL
+where η is the learning rate controlling the step size.
 
 The gradient of the loss is:
 
-\[
-\nabla_{\mathbf w} L = \frac{1}{N} \sum_{i=1}^N (\sigma(z_i) - y_i)\mathbf{x_i}
-\]
-
+∇w​L=N1​i=1∑N​(σ(zi​)−yi​)xi​
 ---
 
 ## 🔍 Interpreting Coefficients
 
-Each coefficient \( w_j \) represents the influence of feature \( x_j \) on the log-odds:
+Each coefficient wj represents the influence of feature xj on the log-odds:
 
-\[
-\log\frac{P(y=1\mid\mathbf{x})}{P(y=0\mid\mathbf{x})} = \mathbf{w}^\top \mathbf{x} + b
-\]
+logP(y=0∣x)P(y=1∣x)​=w⊤x+b
 
-- Positive \( w_j \): increases likelihood of class 1  
-- Negative \( w_j \): decreases likelihood of class 1  
+- Positive wj : increases likelihood of class 1  
+- Negative wj : decreases likelihood of class 1  
 
 **Slide image:**  
 📊 *Top Feature Coefficients — `assets/coefficients.png`*
