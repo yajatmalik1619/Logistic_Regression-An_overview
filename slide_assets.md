@@ -13,9 +13,7 @@ Unlike linear regression, logistic regression predicts probabilities constrained
 
 The logistic (sigmoid) function converts any real value into a probability:
 
-\[
-\sigma(z) = \frac{1}{1 + e^{-z}}
-\]
+sigma(z) = e^z/(1+e^z)
 
 where \( z = \mathbf{w}^\top \mathbf{x} + b \)
 
