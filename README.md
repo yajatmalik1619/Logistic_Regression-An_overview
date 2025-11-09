@@ -5,12 +5,9 @@ This repository aims to explain as well as show case a few examples and use case
 ## Overview
 This project explores **Logistic Regression** across four well-known datasets:
 - Breast Cancer Wisconsin
-- Titanic Survival
-- Pima Indians Diabetes
-- Bank Marketing
 
 The goal is to:
-1. Perform complete **EDA** and preprocessing (imputation, encoding, scaling)
+1. Perform complete **EDA** and preprocessing (if required)(imputation, encoding, scaling)
 2. Train models using:
    - Logistic Regression (from scratch with NumPy)
    - Logistic Regression (using scikit-learn)
@@ -47,7 +44,6 @@ streamlit run demos/app.py
 
 ### Topics covered
 - Data preprocessing (imputation, encoding, scaling)
-- Feature engineering
 - Logistic regression theory & implementation
 - Regularization (L1/L2)
 - Model evaluation (Accuracy, ROC, F1)
