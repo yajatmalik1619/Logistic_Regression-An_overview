@@ -1,7 +1,7 @@
 import os
-from src.data_utils import load_breast_cancer_df
-from src.preprocess import build_preprocessor, split_features_target
-from src.logistic_sklearn import build_pipeline, grid_search_pipeline, save_model
+from data_utils import load_breast_cancer_df
+from preprocess import build_preprocessor, split_features_target
+from logistic_sklearn import build_pipeline, grid_search_pipeline, save_model
 from sklearn.model_selection import train_test_split
 
 def main():
