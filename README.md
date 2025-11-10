@@ -1,6 +1,6 @@
 # Logistic_Regression-An_overview
 This repository aims to explain as well as show case a few examples and use cases of logistic regression, giving a wide essence of what and how it works.
-# Logistic Regression — Multi-Dataset Machine Learning Project
+# Logistic Regression — Machine Learning Project
 
 ## Overview
 This project explores **Logistic Regression** across four well-known datasets:
