@@ -33,8 +33,4 @@ def split_features_target(df: pd.DataFrame, target_col: str = "target") -> Tuple
     y = df[target_col]
     return X, y
 
-def replace_zeros_with_nan(df: pd.DataFrame, cols: list):
-    df = df.copy()
-    for c in cols:
-        df[c] = df[c].replace(0, np.nan)
-    return df
+
