@@ -3,7 +3,7 @@ This repository aims to explain as well as show case a few examples and use case
 # Logistic Regression — Machine Learning Project
 
 ## Overview
-This project explores **Logistic Regression** across four well-known datasets:
+This project explores **Logistic Regression** across a well-known dataset:
 - Breast Cancer Wisconsin
 
 The goal is to:
