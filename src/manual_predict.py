@@ -14,7 +14,6 @@ sys.path.append(str(SRC_DIR))
 
 from src.data_utils import load_breast_cancer_df
 
-
 def compute_range(series):
     """Compute safe and meaningful min/max + default median."""
     q1 = series.quantile(0.25)
@@ -28,7 +27,6 @@ def compute_range(series):
 
     return float(min_val), float(max_val), float(default)
 
-
 def main():
     MODEL_PATH = PROJECT_ROOT / "models" / "breast_cancer_model.joblib"
 
@@ -38,13 +36,11 @@ def main():
 
     model = load(MODEL_PATH)
     print("Loaded model successfully.\n")
-
     # Load dataset to get feature structure
     df = load_breast_cancer_df()
     X = df.drop(columns=["target"])
     feature_names = X.columns
     medians = X.median()
-
     # Subset of features to prompt
     demo_features = [
         "mean radius",
@@ -56,10 +52,8 @@ def main():
         "mean symmetry",
         "mean fractal dimension"
     ]
-
     print("Enter feature values.")
     print("Press Enter to use default median.\n")
-
     user_values = {}
 
     for feat in demo_features:
@@ -95,25 +89,19 @@ def main():
     row = medians.copy()
     for feat, val in user_values.items():
         row[feat] = val
-
     X_row = pd.DataFrame([row[feature_names]])
 
     # Predict
     prob = float(model.predict_proba(X_row)[0][1])
     pred_label = "Benign" if prob >= 0.5 else "Malignant"
-
     # Final output
     print("\n Prediction Result")
     print("---------------------")
     print(f"Predicted Class       : {pred_label}")
     print(f"Probability (Benign)  : {prob:.4f}")
-
     print("\nValues used:")
     for feat in demo_features:
         print(f"  {feat:25s} : {X_row.iloc[0][feat]:.4f}")
-
     print("\nDone.\n")
-
-
 if __name__ == "__main__":
     main()
